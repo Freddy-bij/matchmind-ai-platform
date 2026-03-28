@@ -18,8 +18,8 @@ export const Button: React.FC<ButtonProps> = ({
   
   const variantClasses = {
     primary: 'bg-[#0A66C2] text-white hover:bg-blue-700 focus:ring-blue-500',
-    secondary: 'bg-[#E8F0FE] text-[#0A66C2] hover:bg-blue-100 focus:ring-blue-400',
-    accent: 'bg-[#FF6B35] text-white hover:bg-orange-600 focus:ring-orange-500'
+    secondary: 'bg-[#0A66C2] text-white hover:bg-blue-700 focus:ring-blue-500',
+    accent: 'bg-[#0A66C2] text-white hover:bg-blue-700 focus:ring-blue-500'
   };
   
   const sizeClasses = {

@@ -117,6 +117,10 @@ export const useAuthStore = create<AuthState>()(
 
       logout: () => {
         set({ user: null, token: null, error: null });
+        // Redirect to login page after logout
+        if (typeof window !== 'undefined') {
+          window.location.href = '/login';
+        }
       },
 
       updateProfile: async (data: Partial<User>) => {

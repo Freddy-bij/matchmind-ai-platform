@@ -151,11 +151,11 @@ export default function CandidateJobsPage() {
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 lg:mb-6 space-y-3 sm:space-y-0">
               <h2 className="text-lg lg:text-xl font-semibold text-[#1E293B]">Recommended for You</h2>
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-2">
-                <Button variant="secondary" className="w-full sm:w-auto">
+                <Button variant="secondary" className="w-full flex items-center sm:w-auto">
                   <Filter className="w-4 h-4 mr-2" />
                   Filters
                 </Button>
-                <Button className="bg-[#FF6B35] hover:bg-orange-600 w-full sm:w-auto">
+                <Button className="bg-[#FF6B35] flex items-center hover:bg-orange-600 w-full sm:w-auto">
                   <Upload className="w-4 h-4 mr-2" />
                   Upload Resume
                 </Button>

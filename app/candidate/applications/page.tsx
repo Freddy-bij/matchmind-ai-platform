@@ -128,11 +128,11 @@ export default function CandidateApplicationsPage() {
             <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-4 lg:mb-6 space-y-3 sm:space-y-0">
               <h2 className="text-lg lg:text-xl font-semibold text-[#1E293B]">Application History</h2>
               <div className="flex flex-col sm:flex-row gap-2 sm:gap-2">
-                <Button variant="secondary" className="w-full sm:w-auto">
+                <Button variant="secondary" className="w-full flex items-center sm:w-auto">
                   <Search className="w-4 h-4 mr-2" />
                   Search
                 </Button>
-                <Button className="bg-[#FF6B35] hover:bg-orange-600 w-full sm:w-auto">
+                <Button className="bg-[#FF6B35] flex items-center hover:bg-orange-600 w-full sm:w-auto">
                   <Briefcase className="w-4 h-4 mr-2" />
                   Browse More Jobs
                 </Button>
@@ -164,16 +164,16 @@ export default function CandidateApplicationsPage() {
                       </div>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-2 mt-4 pt-4 border-t border-gray-100">
-                      <Button variant="secondary" size="sm" className="w-full sm:w-auto">
+                      <Button variant="secondary" size="sm" className="w-full flex items-center sm:w-auto">
                         <Eye className="w-4 h-4 mr-2" />
                         View Application
                       </Button>
-                      <Button variant="secondary" size="sm" className="w-full sm:w-auto">
+                      <Button variant="secondary" size="sm" className="w-full flex items-center sm:w-auto">
                         <MessageSquare className="w-4 h-4 mr-2" />
                         Message Recruiter
                       </Button>
                       {application.status === 'interview' && (
-                        <Button variant="primary" size="sm" className="w-full sm:w-auto">
+                        <Button variant="primary" size="sm" className="w-full flex items-center sm:w-auto">
                           <Calendar className="w-4 h-4 mr-2" />
                           Schedule Interview
                         </Button>

@@ -16,14 +16,14 @@ export const Header: React.FC<HeaderProps> = ({
   title = 'MatchMind AI',
   subtitle
 }) => {
-  return (
+return (
     <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="flex items-center">
+          <div >
             <h1 className="text-2xl font-bold text-[#0A66C2]">{title}</h1>
             {subtitle && (
-              <span className="ml-2 text-sm text-[#64748B]">{subtitle}</span>
+              <span className="text-sm text-[#64748B]">{subtitle}</span>
             )}
           </div>
           

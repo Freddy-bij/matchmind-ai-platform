@@ -51,11 +51,11 @@ export const Sidebar: React.FC<SidebarProps> = ({
       <aside className={`
         fixed inset-y-0 left-0 z-40 
         w-64 bg-gradient-to-b from-white to-gray-50 border-r border-gray-200 min-h-screen shadow-sm
-        transform transition-transform duration-300 ease-in-out
+        transform transition-transform duration-300 ease-in-out flex  flex-col
         ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
       `}>
         {/* Logo Section */}
-        <div className="p-6 border-b border-gray-100">
+        <div className="px-6 py-2.5 border-b border-gray-100">
           <div className="flex items-center space-x-3">
             <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-sm">
               M
@@ -67,20 +67,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
           </div>
         </div>
 
-        {/* User Profile Section */}
-        <div className="p-6 border-b border-gray-100">
-          <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg">
-              {user?.name?.charAt(0).toUpperCase() || 'U'}
-            </div>
-            <div className="flex-1">
-              <p className="font-semibold text-[#1E293B]">{user?.name || 'User'}</p>
-              <p className="text-sm text-[#64748B] capitalize bg-blue-50 text-blue-600 px-2 py-1 rounded-full inline-block">
-                {user?.role || 'guest'}
-              </p>
-            </div>
-          </div>
-        </div>
+  
         
         {/* Navigation */}
         <nav className="flex-1 p-4 overflow-y-auto">
@@ -102,7 +89,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   }}
                   className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-left transition-all duration-200 group ${
                     item.active
-                      ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg transform scale-105'
+                      ? 'bg-[#0A66C2] text-white shadow-lg transform scale-105'
                       : 'text-[#64748B] hover:bg-gray-100 hover:text-[#1E293B] hover:shadow-md'
                   }`}
                 >
@@ -115,7 +102,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                   {item.badge && item.badge > 0 && (
                     <span className={`px-2 py-1 rounded-full text-xs font-bold ${
                       item.active 
-                        ? 'bg-white text-blue-600' 
+                        ? 'bg-white text-[#0A66C2]' 
                         : 'bg-red-500 text-white'
                     }`}>
                       {item.badge}
@@ -126,14 +113,25 @@ export const Sidebar: React.FC<SidebarProps> = ({
             })}
           </div>
         </nav>
+         <div>
+             {/* User Profile Section */}
+        <div className="p-6 border-b border-gray-100">
+          <div className="flex items-center space-x-3">
+            <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center text-white font-bold shadow-lg">
+              {user?.name?.charAt(0).toUpperCase() || 'U'}
+            </div>
+            <div className="flex-1">
+              <p className="font-semibold text-[#1E293B]">{user?.name || 'User'}</p>
+              <p className="text-sm text-[#64748B] capitalize bg-blue-50 text-blue-600 px-2 py-1 rounded-full inline-block">
+                {user?.role || 'guest'}
+              </p>
+            </div>
+          </div>
+        </div>
         
         {/* Bottom Actions */}
         <div className="p-4 border-t border-gray-200 bg-gray-50">
           <div className="space-y-2">
-            <button className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-[#64748B] hover:bg-white hover:shadow-md transition-all duration-200 group">
-              <Settings className="w-5 h-5 text-gray-500 group-hover:text-[#1E293B]" />
-              <span className="font-medium text-gray-700 group-hover:text-[#1E293B]">Settings</span>
-            </button>
             <button 
               onClick={() => {
                 onLogout?.();
@@ -149,6 +147,9 @@ export const Sidebar: React.FC<SidebarProps> = ({
             </button>
           </div>
         </div>
+
+         </div>
+ 
       </aside>
     </>
   );

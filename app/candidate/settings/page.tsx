@@ -7,20 +7,20 @@ import { Button } from '@/src/components/ui/Button';
 import { Card, CardHeader, CardTitle, CardContent } from '@/src/components/ui/Card';
 import { Sidebar } from '@/src/components/layout/Sidebar';
 import { Header } from '@/src/components/layout/Header';
-import { Briefcase, Users, FileText, Settings, Bell, Shield, Eye, Globe, Lock, Mail, Smartphone, Building, User, Palette } from 'lucide-react';
+import { Briefcase, Users, FileText, Settings, Bell, Shield, Eye, Globe, Lock, Mail, Smartphone, User, Palette, Key, CreditCard, Trash2 } from 'lucide-react';
 
-export default function RecruiterSettings() {
+export default function CandidateSettings() {
   const { user, logout } = useAuth();
   const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [activeTab, setActiveTab] = useState('general');
 
   const sidebarItems = [
-    { id: 'dashboard', label: 'Dashboard', icon: Briefcase, href: '/recruiter', active: false },
-    { id: 'jobs', label: 'Jobs', icon: Briefcase, href: '/recruiter/jobs', active: false },
-    { id: 'candidates', label: 'Candidates', icon: Users, href: '/recruiter/candidates', active: false },
-    { id: 'applications', label: 'Applications', icon: FileText, href: '/recruiter/applications', active: false },
-    { id: 'settings', label: 'Settings', icon: Settings, href: '/recruiter/settings', active: true },
+    { id: 'dashboard', label: 'Dashboard', icon: Briefcase, href: '/candidate', active: false },
+    { id: 'jobs', label: 'Jobs', icon: Briefcase, href: '/candidate/jobs', active: false },
+    { id: 'applications', label: 'Applications', icon: FileText, href: '/candidate/applications', active: false },
+    { id: 'profile', label: 'Profile', icon: Users, href: '/candidate/profile', active: false },
+    { id: 'settings', label: 'Settings', icon: Settings, href: '/candidate/settings', active: true },
   ];
 
   const [settings, setSettings] = useState({
@@ -37,26 +37,18 @@ export default function RecruiterSettings() {
     profileVisibility: 'public',
     showEmail: false,
     showPhone: false,
-    allowCandidates: true,
+    allowRecruiters: true,
     
     // Security Settings
     twoFactorAuth: false,
     sessionTimeout: '24hours',
     
     // Account Settings
-    email: user?.email || 'recruiter@company.com',
+    email: user?.email || 'john.doe@example.com',
     phone: '+1 (555) 123-4567',
     currentPassword: '',
     newPassword: '',
-    confirmPassword: '',
-    
-    // Company Settings
-    companyName: 'Tech Corp',
-    industry: 'Technology',
-    companySize: '51-200',
-    website: 'https://techcorp.com',
-    location: 'San Francisco, CA',
-    companyDescription: 'Leading technology company focused on innovation and excellence.'
+    confirmPassword: ''
   });
 
   const handleSettingChange = (category: string, field: string, value: any) => {
@@ -94,12 +86,11 @@ export default function RecruiterSettings() {
   };
 
   const tabs = [
-    { id: 'general', label: 'General', icon: Globe },
+    { id: 'general', label: 'General', icon: User },
     { id: 'notifications', label: 'Notifications', icon: Bell },
-    { id: 'privacy', label: 'Privacy', icon: Eye },
-    { id: 'security', label: 'Security', icon: Shield },
-    { id: 'account', label: 'Account', icon: Lock },
-    { id: 'company', label: 'Company', icon: Building }
+    { id: 'privacy', label: 'Privacy', icon: Shield },
+    { id: 'security', label: 'Security', icon: Key },
+    { id: 'account', label: 'Account', icon: CreditCard }
   ];
 
   return (
@@ -239,17 +230,8 @@ export default function RecruiterSettings() {
                             <h4 className="font-medium text-gray-900">Email Notifications</h4>
                             <p className="text-sm text-gray-500">Receive notifications via email</p>
                           </div>
-                          <button
-                            onClick={() => handleSettingChange('notifications', 'emailNotifications', !settings.emailNotifications)}
-                            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                              settings.emailNotifications ? 'bg-blue-600' : 'bg-gray-200'
-                            }`}
-                          >
-                            <span
-                              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                                settings.emailNotifications ? 'translate-x-6' : 'translate-x-1'
-                              }`}
-                            />
+                          <button className="relative inline-flex h-6 w-11 items-center rounded-full bg-blue-600">
+                            <span className="inline-block h-4 w-4 transform rounded-full bg-white transition translate-x-6"></span>
                           </button>
                         </div>
 
@@ -258,55 +240,28 @@ export default function RecruiterSettings() {
                             <h4 className="font-medium text-gray-900">Push Notifications</h4>
                             <p className="text-sm text-gray-500">Receive push notifications in browser</p>
                           </div>
-                          <button
-                            onClick={() => handleSettingChange('notifications', 'pushNotifications', !settings.pushNotifications)}
-                            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                              settings.pushNotifications ? 'bg-blue-600' : 'bg-gray-200'
-                            }`}
-                          >
-                            <span
-                              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                                settings.pushNotifications ? 'translate-x-6' : 'translate-x-1'
-                              }`}
-                            />
+                          <button className="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200">
+                            <span className="inline-block h-4 w-4 transform rounded-full bg-white transition translate-x-1"></span>
                           </button>
                         </div>
 
                         <div className="flex items-center justify-between">
                           <div>
-                            <h4 className="font-medium text-gray-900">New Applications</h4>
-                            <p className="text-sm text-gray-500">Get notified when candidates apply</p>
+                            <h4 className="font-medium text-gray-900">Job Alerts</h4>
+                            <p className="text-sm text-gray-500">Get notified about new job matches</p>
                           </div>
-                          <button
-                            onClick={() => handleSettingChange('notifications', 'jobAlerts', !settings.jobAlerts)}
-                            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                              settings.jobAlerts ? 'bg-blue-600' : 'bg-gray-200'
-                            }`}
-                          >
-                            <span
-                              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                                settings.jobAlerts ? 'translate-x-6' : 'translate-x-1'
-                              }`}
-                            />
+                          <button className="relative inline-flex h-6 w-11 items-center rounded-full bg-blue-600">
+                            <span className="inline-block h-4 w-4 transform rounded-full bg-white transition translate-x-6"></span>
                           </button>
                         </div>
 
                         <div className="flex items-center justify-between">
                           <div>
                             <h4 className="font-medium text-gray-900">Application Updates</h4>
-                            <p className="text-sm text-gray-500">Updates on job applications</p>
+                            <p className="text-sm text-gray-500">Updates on your job applications</p>
                           </div>
-                          <button
-                            onClick={() => handleSettingChange('notifications', 'applicationUpdates', !settings.applicationUpdates)}
-                            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                              settings.applicationUpdates ? 'bg-blue-600' : 'bg-gray-200'
-                            }`}
-                          >
-                            <span
-                              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                                settings.applicationUpdates ? 'translate-x-6' : 'translate-x-1'
-                              }`}
-                            />
+                          <button className="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200">
+                            <span className="inline-block h-4 w-4 transform rounded-full bg-white transition translate-x-1"></span>
                           </button>
                         </div>
                       </div>
@@ -329,38 +284,29 @@ export default function RecruiterSettings() {
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-6">
-                      <div className="space-y-4">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Profile Visibility
-                          </label>
-                          <select
-                            value={settings.profileVisibility}
-                            onChange={(e) => handleSettingChange('privacy', 'profileVisibility', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                          >
-                            <option value="public">Public - Anyone can view your profile</option>
-                            <option value="candidates">Candidates Only - Only candidates can view your profile</option>
-                            <option value="private">Private - Your profile is hidden</option>
-                          </select>
-                        </div>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Profile Visibility
+                        </label>
+                        <select
+                          value={settings.profileVisibility}
+                          onChange={(e) => handleSettingChange('privacy', 'profileVisibility', e.target.value)}
+                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        >
+                          <option value="public">Public - Anyone can view your profile</option>
+                          <option value="recruiters">Recruiters Only - Only recruiters can view your profile</option>
+                          <option value="private">Private - Your profile is hidden</option>
+                        </select>
+                      </div>
 
+                      <div className="space-y-4">
                         <div className="flex items-center justify-between">
                           <div>
                             <h4 className="font-medium text-gray-900">Show Email</h4>
                             <p className="text-sm text-gray-500">Display email address on your profile</p>
                           </div>
-                          <button
-                            onClick={() => handleSettingChange('privacy', 'showEmail', !settings.showEmail)}
-                            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                              settings.showEmail ? 'bg-blue-600' : 'bg-gray-200'
-                            }`}
-                          >
-                            <span
-                              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                                settings.showEmail ? 'translate-x-6' : 'translate-x-1'
-                              }`}
-                            />
+                          <button className="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200">
+                            <span className="inline-block h-4 w-4 transform rounded-full bg-white transition translate-x-1"></span>
                           </button>
                         </div>
 
@@ -369,36 +315,18 @@ export default function RecruiterSettings() {
                             <h4 className="font-medium text-gray-900">Show Phone</h4>
                             <p className="text-sm text-gray-500">Display phone number on your profile</p>
                           </div>
-                          <button
-                            onClick={() => handleSettingChange('privacy', 'showPhone', !settings.showPhone)}
-                            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                              settings.showPhone ? 'bg-blue-600' : 'bg-gray-200'
-                            }`}
-                          >
-                            <span
-                              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                                settings.showPhone ? 'translate-x-6' : 'translate-x-1'
-                              }`}
-                            />
+                          <button className="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200">
+                            <span className="inline-block h-4 w-4 transform rounded-full bg-white transition translate-x-1"></span>
                           </button>
                         </div>
 
                         <div className="flex items-center justify-between">
                           <div>
-                            <h4 className="font-medium text-gray-900">Allow Candidates to Contact</h4>
-                            <p className="text-sm text-gray-500">Candidates can send you messages</p>
+                            <h4 className="font-medium text-gray-900">Allow Recruiters to Contact</h4>
+                            <p className="text-sm text-gray-500">Recruiters can send you messages</p>
                           </div>
-                          <button
-                            onClick={() => handleSettingChange('privacy', 'allowCandidates', !settings.allowCandidates)}
-                            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                              settings.allowCandidates ? 'bg-blue-600' : 'bg-gray-200'
-                            }`}
-                          >
-                            <span
-                              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                                settings.allowCandidates ? 'translate-x-6' : 'translate-x-1'
-                              }`}
-                            />
+                          <button className="relative inline-flex h-6 w-11 items-center rounded-full bg-blue-600">
+                            <span className="inline-block h-4 w-4 transform rounded-full bg-white transition translate-x-6"></span>
                           </button>
                         </div>
                       </div>
@@ -427,17 +355,8 @@ export default function RecruiterSettings() {
                             <h4 className="font-medium text-gray-900">Two-Factor Authentication</h4>
                             <p className="text-sm text-gray-500">Add an extra layer of security to your account</p>
                           </div>
-                          <button
-                            onClick={() => handleSettingChange('security', 'twoFactorAuth', !settings.twoFactorAuth)}
-                            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                              settings.twoFactorAuth ? 'bg-blue-600' : 'bg-gray-200'
-                            }`}
-                          >
-                            <span
-                              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                                settings.twoFactorAuth ? 'translate-x-6' : 'translate-x-1'
-                              }`}
-                            />
+                          <button className="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200">
+                            <span className="inline-block h-4 w-4 transform rounded-full bg-white transition translate-x-1"></span>
                           </button>
                         </div>
 
@@ -570,107 +489,6 @@ export default function RecruiterSettings() {
                       </CardContent>
                     </Card>
                   </div>
-                )}
-
-                {activeTab === 'company' && (
-                  <Card>
-                    <CardHeader>
-                      <CardTitle className="flex items-center space-x-2">
-                        <Building className="w-5 h-5" />
-                        <span>Company Information</span>
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-6">
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Company Name
-                          </label>
-                          <input
-                            type="text"
-                            value={settings.companyName}
-                            onChange={(e) => handleSettingChange('company', 'companyName', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Industry
-                          </label>
-                          <select
-                            value={settings.industry}
-                            onChange={(e) => handleSettingChange('company', 'industry', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                          >
-                            <option value="Technology">Technology</option>
-                            <option value="Healthcare">Healthcare</option>
-                            <option value="Finance">Finance</option>
-                            <option value="Education">Education</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Company Size
-                        </label>
-                        <select
-                          value={settings.companySize}
-                          onChange={(e) => handleSettingChange('company', 'companySize', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        >
-                          <option value="1-10">1-10 employees</option>
-                          <option value="11-50">11-50 employees</option>
-                          <option value="51-200">51-200 employees</option>
-                          <option value="201-500">201-500 employees</option>
-                          <option value="500+">500+ employees</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Company Description
-                        </label>
-                        <textarea
-                          rows={3}
-                          value={settings.companyDescription}
-                          onChange={(e) => handleSettingChange('company', 'companyDescription', e.target.value)}
-                          className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        />
-                      </div>
-
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Website
-                          </label>
-                          <input
-                            type="url"
-                            value={settings.website}
-                            onChange={(e) => handleSettingChange('company', 'website', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-2">
-                            Location
-                          </label>
-                          <input
-                            type="text"
-                            value={settings.location}
-                            onChange={(e) => handleSettingChange('company', 'location', e.target.value)}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-                          />
-                        </div>
-                      </div>
-
-                      <div className="pt-4">
-                        <Button onClick={handleSaveSettings} className="w-full">
-                          Save Company Information
-                        </Button>
-                      </div>
-                    </CardContent>
-                  </Card>
                 )}
               </div>
             </div>
