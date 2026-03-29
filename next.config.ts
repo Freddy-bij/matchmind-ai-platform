@@ -1,8 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Ensure src/app directory is recognized
-  // Remove serverExternalPackages as it might be causing issues
+  // Allow cross-origin requests for development
+  allowedDevOrigins: ['127.0.0.1'],
 };
 
 export default nextConfig;
