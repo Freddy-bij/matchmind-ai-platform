@@ -68,7 +68,7 @@ export default function RecruiterDashboard() {
           {/* Quick Actions */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-6 lg:mb-8">
             <Button 
-              className="bg-[#FF6B35] hover:bg-orange-600 w-full"
+              className="bg-[#FF6B35] flex items-center hover:bg-orange-600 w-full"
               onClick={() => router.push('/recruiter/jobs')}
             >
               <Plus className="w-4 h-4 mr-2" />
@@ -76,7 +76,7 @@ export default function RecruiterDashboard() {
             </Button>
             <Button 
               variant="secondary" 
-              className="w-full"
+              className="w-full flex items-center"
               onClick={() => router.push('/recruiter/candidates')}
             >
               <Search className="w-4 h-4 mr-2" />
@@ -84,7 +84,7 @@ export default function RecruiterDashboard() {
             </Button>
             <Button 
               variant="secondary" 
-              className="w-full"
+              className="w-full flex items-center"
               onClick={() => router.push('/recruiter/applications')}
             >
               <FileText className="w-4 h-4 mr-2" />
@@ -92,7 +92,7 @@ export default function RecruiterDashboard() {
             </Button>
             <Button 
               variant="secondary" 
-              className="w-full"
+              className="w-full flex items-center"
               onClick={() => router.push('/recruiter/analytics')}
             >
               <BarChart3 className="w-4 h-4 mr-2" />

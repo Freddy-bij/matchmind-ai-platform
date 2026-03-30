@@ -206,11 +206,11 @@ export default function RecruiterApplicationsPage() {
                   <option value="accepted">Accepted</option>
                   <option value="rejected">Rejected</option>
                 </select>
-                <Button variant="secondary" className="w-full sm:w-auto">
+                <Button variant="secondary" className="w-full flex items-center sm:w-auto">
                   <Filter className="w-4 h-4 mr-2" />
                   More Filters
                 </Button>
-                <Button variant="secondary" className="w-full sm:w-auto">
+                <Button variant="secondary" className="w-full flex items-center sm:w-auto">
                   <Download className="w-4 h-4 mr-2" />
                   Export
                 </Button>
@@ -276,22 +276,22 @@ export default function RecruiterApplicationsPage() {
                   </div>
                   
                   <div className="flex flex-col sm:flex-row gap-2 mt-4 pt-4 border-t border-gray-100">
-                    <Button variant="primary" size="sm" className="w-full sm:w-auto">
+                    <Button variant="primary" size="sm" className="w-full flex items-center sm:w-auto">
                       <Eye className="w-4 h-4 mr-2" />
                       View Profile
                     </Button>
-                    <Button variant="secondary" size="sm" className="w-full sm:w-auto">
+                    <Button variant="secondary" size="sm" className="w-full flex items-center sm:w-auto">
                       <MessageSquare className="w-4 h-4 mr-2" />
                       Message
                     </Button>
                     {application.status === 'reviewing' && (
-                      <Button variant="accent" size="sm" className="w-full sm:w-auto">
+                      <Button variant="accent" size="sm" className="w-full flex items-center sm:w-auto">
                         <Calendar className="w-4 h-4 mr-2" />
                         Schedule Interview
                       </Button>
                     )}
                     {application.status === 'pending' && (
-                      <Button variant="primary" size="sm" className="w-full sm:w-auto">
+                      <Button variant="primary" size="sm" className="w-full flex items-center sm:w-auto">
                         <Eye className="w-4 h-4 mr-2" />
                         Start Review
                       </Button>
