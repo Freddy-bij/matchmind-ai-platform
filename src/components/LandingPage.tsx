@@ -559,13 +559,6 @@ export default function LandingPage() {
                     <h4 className="font-semibold text-gray-900 mb-2">AI Recommendation</h4>
                     <p className="text-gray-600 text-sm">Strong candidate with 92% match. Consider for senior frontend role.</p>
                   </div>
-                  <button 
-                    onClick={() => handleNavigation('/register')}
-                    className="bg-blue-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center gap-2"
-                  >
-                    View Full Profile
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
                 </div>
               </div>
             </div>
@@ -602,7 +595,7 @@ export default function LandingPage() {
             <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">For Recruiters</h3>
-                <div className="text-3xl font-bold text-blue-500 mb-4">$299<span className="text-lg text-gray-600">/month</span></div>
+                <div className="text-3xl font-bold text-blue-500 mb-4">Free<span className="text-lg text-gray-600"> for now</span></div>
               </div>
               
               <ul className="space-y-3 mb-8">
