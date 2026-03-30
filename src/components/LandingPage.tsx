@@ -158,11 +158,12 @@ export default function LandingPage() {
             <div className="space-y-8">
               <div className="space-y-6">
                 <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
-                  Match talent with opportunity,
-                  <span className="text-blue-500"> not keywords</span>
+                  Match talent with opportunity in <span className="text-blue-500">2026</span>,
+                  <br />
+                  <span className="text-blue-500">not keywords</span>
                 </h1>
                 <p className="text-xl text-gray-600 leading-relaxed max-w-lg">
-                  AI-powered semantic matching that understands skills, context, and potential—beyond traditional keyword matching to find perfect candidates.
+                  Modernized, professional hiring powered by intelligent matching, skill-focused evaluation, and candidate insight.
                 </p>
               </div>
               
