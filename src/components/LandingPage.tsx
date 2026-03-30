@@ -166,20 +166,20 @@ export default function LandingPage() {
                 </p>
               </div>
               
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <button 
                   onClick={() => handleNavigation('/register')}
-                  className="bg-blue-500 text-white px-8 py-4 rounded-lg text-base font-semibold hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2"
+                  className="bg-blue-600 text-white px-6 py-3 rounded-lg text-sm font-semibold hover:bg-blue-700 transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2"
                 >
-                  Start Free Trial
-                  <ArrowRight className="w-5 h-5" />
+                  Get Started
+                  <ArrowRight className="w-4 h-4" />
                 </button>
                 <button 
                   onClick={() => setShowDemo(true)}
-                  className="bg-white text-blue-500 px-8 py-4 rounded-lg text-base font-semibold hover:bg-gray-50 transition-all shadow-lg hover:shadow-xl transform hover:scale-105 flex items-center justify-center gap-2 border-2 border-blue-500/20"
+                  className="bg-white text-blue-600 px-6 py-3 rounded-lg text-sm font-semibold hover:bg-gray-100 transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2 border border-blue-200"
                 >
-                  See Demo
-                  <ArrowRight className="w-5 h-5" />
+                  View Demo
+                  <ArrowRight className="w-4 h-4" />
                 </button>
               </div>
             </div>
@@ -204,74 +204,56 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Metrics Row */}
-      <section className="py-16 px-6 sm:px-8 lg:px-12 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {/* Total Candidates */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <Users className="w-6 h-6 text-gray-500" />
-                </div>
-                <div className="flex items-center gap-1 text-blue-500">
-                  <TrendingUp className="w-4 h-4" />
-                  <span className="text-sm font-semibold">+12%</span>
-                </div>
-              </div>
-              <div className="text-2xl font-bold text-gray-900">2,847</div>
-              <div className="text-sm text-gray-600">Total Candidates</div>
+      {/* Core Highlights */}
+      <section className="py-14 px-6 sm:px-8 lg:px-12 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-center text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
+            Better Hiring, Faster Outcomes
+          </h2>
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="p-5 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+              <p className="text-sm uppercase tracking-wider text-gray-500 mb-2">Precision Match</p>
+              <h3 className="text-2xl font-semibold text-gray-900">94% Accuracy</h3>
+              <p className="text-gray-600 mt-2">Intelligent semantic matching reduces false positives and saves you time.</p>
             </div>
-
-            {/* Match Accuracy */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <Activity className="w-6 h-6 text-gray-500" />
-                </div>
-                <div className="flex items-center gap-1 text-blue-500">
-                  <TrendingUp className="w-4 h-4" />
-                  <span className="text-sm font-semibold">+5%</span>
-                </div>
-              </div>
-              <div className="text-2xl font-bold text-gray-900">94%</div>
-              <div className="text-sm text-gray-600">Match Accuracy</div>
+            <div className="p-5 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+              <p className="text-sm uppercase tracking-wider text-gray-500 mb-2">Time Savings</p>
+              <h3 className="text-2xl font-semibold text-gray-900">70% Faster</h3>
+              <p className="text-gray-600 mt-2">Automated candidate screening and scoring keeps your team efficient.</p>
             </div>
-
-            {/* Screening Time */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <BarChart3 className="w-6 h-6 text-gray-500" />
-                </div>
-                <div className="flex items-center gap-1 text-blue-500">
-                  <TrendingUp className="w-4 h-4" />
-                  <span className="text-sm font-semibold">+8%</span>
-                </div>
-              </div>
-              <div className="text-2xl font-bold text-gray-900">70%</div>
-              <div className="text-sm text-gray-600">Faster Screening</div>
-            </div>
-
-            {/* Quality Increase */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
-                  <ChevronUp className="w-6 h-6 text-gray-500" />
-                </div>
-                <div className="flex items-center gap-1 text-blue-500">
-                  <TrendingUp className="w-4 h-4" />
-                  <span className="text-sm font-semibold">+15%</span>
-                </div>
-              </div>
-              <div className="text-2xl font-bold text-gray-900">40%</div>
-              <div className="text-sm text-gray-600">Quality Increase</div>
+            <div className="p-5 bg-white rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+              <p className="text-sm uppercase tracking-wider text-gray-500 mb-2">Quality</p>
+              <h3 className="text-2xl font-semibold text-gray-900">40% Better Leads</h3>
+              <p className="text-gray-600 mt-2">Focus on high-fit talent and reduce churn with smarter selection.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Problem & Solution Section */}
+      {/* Feature Highlights */}
+      <section id="features" className="py-14 px-6 sm:px-8 lg:px-12 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-center text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
+            Key features that matter
+          </h2>
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="p-5 bg-indigo-50 rounded-xl border border-indigo-100">
+              <h3 className="text-lg font-semibold text-indigo-900">Semantic AI Matching</h3>
+              <p className="text-gray-600 mt-2">Beyond keywords: skills, context, and role fit in one score.</p>
+            </div>
+            <div className="p-5 bg-indigo-50 rounded-xl border border-indigo-100">
+              <h3 className="text-lg font-semibold text-indigo-900">Bias-Reduced Selection</h3>
+              <p className="text-gray-600 mt-2">Objective scoring removes manual bias and standardizes outcomes.</p>
+            </div>
+            <div className="p-5 bg-indigo-50 rounded-xl border border-indigo-100">
+              <h3 className="text-lg font-semibold text-indigo-900">Instant Insights</h3>
+              <p className="text-gray-600 mt-2">Clear analytics and reports for data-driven hiring decisions.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
       <section className="py-20 px-6 sm:px-8 lg:px-12 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -383,49 +365,45 @@ export default function LandingPage() {
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="max-w-4xl mx-auto px-4 py-8 bg-gray-50 rounded-xl shadow-sm border border-gray-100 mb-10">
+            <h3 className="text-xl font-semibold text-gray-900 mb-2">Latest product news</h3>
+            <p className="text-gray-600 text-sm mb-4">Simplified experience, faster candidate matches, and a lean UI for professionals.</p>
+            <ul className="space-y-2 text-gray-700">
+              <li>• New: streamlined cards for quick insights</li>
+              <li>• Updated: minimalist call-to-action buttons for high-clarity CTAs</li>
+              <li>• Added: more concise reporting for recruitment metrics</li>
+            </ul>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Semantic Matching */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
-                <Brain className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Semantic Matching</h3>
-              <p className="text-gray-600 text-sm">AI understands skills and context beyond exact keywords to find truly qualified candidates.</p>
+            <div className="bg-white rounded-lg p-5 shadow-sm border border-gray-100">
+              <h3 className="text-base font-semibold text-gray-900 mb-1">Semantic Matching</h3>
+              <p className="text-gray-600 text-sm">AI understands skills and context beyond keywords for top candidates.</p>
             </div>
 
             {/* Bias Reduction */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
-                <CheckCircle className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Bias Reduction</h3>
-              <p className="text-gray-600 text-sm">Objective evaluation based on skills and qualifications eliminates unconscious bias in hiring.</p>
+            <div className="bg-white rounded-lg p-5 shadow-sm border border-gray-100">
+              <h3 className="text-base font-semibold text-gray-900 mb-1">Bias Reduction</h3>
+              <p className="text-gray-600 text-sm">Objective, skills-first ranking.
+</p>
             </div>
 
             {/* AI Match Scores */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
-                <BarChart3 className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">AI Match Scores</h3>
-              <p className="text-gray-600 text-sm">Get detailed compatibility scores with explanations for each candidate-job match.</p>
+            <div className="bg-white rounded-lg p-5 shadow-sm border border-gray-100">
+              <h3 className="text-base font-semibold text-gray-900 mb-1">AI Match Scores</h3>
+              <p className="text-gray-600 text-sm">Scorecards explain candidate relevance in clear, actionable terms.</p>
             </div>
 
             {/* Real-time Communication */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
-                <Mail className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Real-time Communication</h3>
-              <p className="text-gray-600 text-sm">Built-in messaging system to connect with candidates directly from platform.</p>
+            <div className="bg-white rounded-lg p-5 shadow-sm border border-gray-100">
+              <h3 className="text-base font-semibold text-gray-900 mb-1">Real-time Communication</h3>
+              <p className="text-gray-600 text-sm">Connect immediately and keep hiring in flow.</p>
             </div>
 
             {/* Reverse Matching */}
-            <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
-              <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center mb-4">
-                <Users className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Reverse Matching</h3>
+            <div className="bg-white rounded-lg p-5 shadow-sm border border-gray-100">
+              <h3 className="text-base font-semibold text-gray-900 mb-1">Reverse Matching</h3>
               <p className="text-gray-600 text-sm">Jobs find qualified candidates proactively, not just candidates finding jobs.</p>
             </div>
           </div>
@@ -627,14 +605,14 @@ export default function LandingPage() {
               
               <button 
                 onClick={() => handleNavigation('/register?plan=recruiter')}
-                className="w-full bg-blue-500 text-white py-4 rounded-xl font-bold hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition-shadow shadow-sm"
               >
                 Start Recruiting
               </button>
             </div>
 
             {/* Job Seeker Plan */}
-            <div className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+            <div className="bg-white rounded-lg p-7 shadow-sm border border-gray-100">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-2">For Job Seekers</h3>
                 <div className="text-3xl font-bold text-blue-500 mb-4">Free<span className="text-lg text-gray-600"> forever</span></div>
@@ -669,7 +647,7 @@ export default function LandingPage() {
               
               <button 
                 onClick={() => handleNavigation('/register?plan=seeker')}
-                className="w-full bg-blue-500 text-white py-4 rounded-xl font-bold hover:bg-blue-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700 transition-shadow shadow-sm"
               >
                 Create Free Profile
               </button>
